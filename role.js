@@ -1,12 +1,3 @@
-/**
- * Backbone.Validator
- *
- * Adds decoupled validator functionality that could be bound to model and view, as well as
- * validated plain hashes with built-in or custom validators
- *
- * @author Maksim Horbachevsky
- */
-
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     define(['underscore'], factory);
