@@ -136,7 +136,7 @@
    * Reset roles list and current user's role
    */
   Role.reset = function() {
-    Role.current = "guest";
+    Role.current = [];
     Role.roles = {};
   };
 
