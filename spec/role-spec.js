@@ -107,8 +107,8 @@ describe('Role', function() {
       expect(Role.roles).toEqual({});
     });
 
-    it('reset current user to guest', function() {
-      expect(Role.current).toEqual('guest');
+    it('reset current user roles to empty', function() {
+      expect(Role.current).toEqual([]);
     });
 
   });
