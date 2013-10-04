@@ -52,6 +52,21 @@ var book = books.get(1);
 if (Role.can("update", "books", book)) {
   ...
 }
+
+// or somewhere in Backbone.Router or whatever router that has 'before' filter
+
+... 
+before: {
+  'books/new': function() {
+    if (!Role.can("create", "books")) {
+      this.navigate("/home");
+      return false;
+    }
+  }
+}
+...
+
+
 ```
 
 ## Using roles in templates
