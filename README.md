@@ -31,7 +31,7 @@ Role.define("user", {
 });
 
 // Inheriting existing models
-Role.define("admin", "user" {
+Role.define("admin", "user", {
   books: {
     update: true
   }
