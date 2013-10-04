@@ -99,7 +99,9 @@
    * @returns {{}}
    */
   Role.merge = function() {
-    return _.chain([arguments]).flatten().inject(function(result, role) {
+    var result = {};
+
+    _.chain([arguments]).flatten().each(function(role) {
       _.each(role, function(abilities, name) {
         if (abilities === false || abilities === null) {
           delete result[name];
@@ -107,9 +109,9 @@
           result[name] = _.extend(result[name] || {}, abilities);
         }
       });
+    });
 
-      return result
-    }, { }).value();
+    return result;
   };
 
   /**
