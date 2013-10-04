@@ -99,9 +99,7 @@
    * @returns {{}}
    */
   Role.merge = function() {
-    var result = {};
-
-    _.chain(arguments).flatten().each(function(role) {
+    return _.chain([arguments]).flatten().inject(function(result, role) {
       _.each(role, function(abilities, name) {
         if (abilities === false || abilities === null) {
           delete result[name];
@@ -109,9 +107,9 @@
           result[name] = _.extend(result[name] || {}, abilities);
         }
       });
-    });
 
-    return result;
+      return result
+    }, { }).value();
   };
 
   /**
@@ -129,7 +127,7 @@
       return _.isObject(ability) ? ability : Role.roles[ability];
     }).value();
 
-    Role.roles[name] = Role.merge.apply(Role, abilities);
+    Role.roles[name] = Role.merge(abilities);
   };
 
   /**
