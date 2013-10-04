@@ -54,6 +54,31 @@ if (Role.can("update", "books", book)) {
 }
 ```
 
+## Using roles in templates
+#### Handlebars
+```js
+Handlebars.registerHelper('can', function() {
+  var abilityArgs = _.initial(arguments),
+    able = Role.can.apply(null, abilityArgs),
+    options = _.last(arguments);
+
+  return able ? options.fn(this) : options.inverse(this);
+});
+
+```
+
+after that you can have following in templates:
+
+```hbs
+{{#can 'create' 'books'}}
+  <a href="#/books/new">Add book</a>
+{{else}}  
+  <a href="#/access/request">Request access to add new books</a>
+{{/can}}
+```
+
+
+
 ## Running tests
 You can use karma runner via
 
