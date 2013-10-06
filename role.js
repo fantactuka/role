@@ -31,7 +31,7 @@
    *      books: {
    *        read: true,
    *        update: function(book) {
-   *          return book.authorId == CurrentUser.id
+   *          return book && book.authorId == CurrentUser.id
    *        }
    *      }
    *    });
