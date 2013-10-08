@@ -15,7 +15,7 @@
    *
    *    var CurrentUser = require('my-current-user-instance');
    *
-   *    // Defining current user role ("guest" by default)
+   *    // Defining current user role ([] by default)
    *    Role.current = "admin";
    *
    *    // or
@@ -31,7 +31,7 @@
    *      books: {
    *        read: true,
    *        update: function(book) {
-   *          return book.authorId == CurrentUser.id
+   *          return book && book.authorId == CurrentUser.id
    *        }
    *      }
    *    });

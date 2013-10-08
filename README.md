@@ -79,7 +79,6 @@ Handlebars.registerHelper('can', function() {
 
   return able ? options.fn(this) : options.inverse(this);
 });
-
 ```
 
 after that you can have following in templates:
