@@ -4,7 +4,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory(require('underscore'));
   } else {
-    factory(window._);
+    window.Role = factory(window._);
   }
 })(function(_) {
 
@@ -62,7 +62,7 @@
    * @type {{}}
    */
 
-  var Role = window.Role = {};
+  var Role = {};
 
   /**
    * Available roles storage. Object tree, that stores information in the following format:
