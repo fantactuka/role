@@ -62,7 +62,9 @@
    * @type {{}}
    */
 
-  var Role = {};
+  var Role = {
+    version: '0.0.3'
+  };
 
   /**
    * Available roles storage. Object tree, that stores information in the following format:

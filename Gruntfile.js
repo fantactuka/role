@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
     version: {
       update: {
-        src: ['component.json', 'package.json']
+        src: ['bower.json', 'package.json', 'role.js']
       }
     }
   });
