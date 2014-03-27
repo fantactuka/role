@@ -9,10 +9,10 @@ Using [Bower](http://twitter.github.com/bower/) `bower install role` or just cop
 ## Usage
 ```js
 // Defining current user role ("guest" by default)
-Role.current = "admin";
+Role.current = 'admin';
 
 // or
-Role.current = ["user", "moderator"];
+Role.current = ['user', 'moderator'];
 
 // or
 var CurrentUser = require('my-current-user-instance');
@@ -21,7 +21,7 @@ Role.current = function() {
 }
 
 // Defining roles with entity->action mapping
-Role.define("user", {
+Role.define('user', {
   books: {
     read: true,
     update: function(book) {
@@ -31,7 +31,7 @@ Role.define("user", {
 });
 
 // Inheriting existing models
-Role.define("admin", "user", {
+Role.define('admin', 'user', {
   books: {
     update: true
   }
@@ -41,7 +41,7 @@ Role.define("admin", "user", {
 // perform actions on passed entities.
 // E.g. somewhere in code:
 
-if (Role.can("read", "books")) {
+if (Role.can('read', 'books')) {
   ...
 }
 
@@ -49,7 +49,7 @@ if (Role.can("read", "books")) {
 
 var book = books.get(1);
 
-if (Role.can("update", "books", book)) {
+if (Role.can('update', 'books', book)) {
   ...
 }
 
@@ -58,8 +58,8 @@ if (Role.can("update", "books", book)) {
 ... 
 before: {
   'books/new': function() {
-    if (!Role.can("create", "books")) {
-      this.navigate("/home");
+    if (!Role.can('create', 'books')) {
+      this.navigate('/home');
       return false;
     }
   }
